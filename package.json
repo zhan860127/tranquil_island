@@ -4,13 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^1.0.0",
     "date-fns": "^2.16.1",
     "firebase": "^7.23.0",
+    "moment": "^2.29.4",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",

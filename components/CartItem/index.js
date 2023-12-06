@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./cart-item.module.scss";
 import { useProduct } from "hooks/product.hook";
 
-export default function CartItem({ id, size, count, onAdd }) {
+export default function CartItem({ id, size, count, onAdd,ondel }) {
   // const address = useAddress(data.address);
   // const { title, region, city, full_address, zipcode } = address.data;
   // console.log(new Date(data.date));
@@ -19,7 +19,7 @@ export default function CartItem({ id, size, count, onAdd }) {
       </div>
       <span className={styles.price}>{data?.sale_price * count || "0"}$</span>
       <div className={styles.buttons}>
-        <button>-</button>
+        <button onClick={() => ondel(id,size)}>-</button>
         <span>{count || "0"}</span>
         <button onClick={() => onAdd(id, size)}>+</button>
       </div>

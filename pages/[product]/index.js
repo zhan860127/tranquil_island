@@ -40,6 +40,13 @@ export default function Product({ data, query }) {
     sizes,
   } = data;
 
+  console.log(information)
+  const newText = information.split(`\\n`).map(str => <p>{str}</p>);
+  console.log(newText)
+
+function escapeHTML(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+}
   const id = query?.product;
 
   useEffect(() => {
@@ -94,7 +101,7 @@ export default function Product({ data, query }) {
     <Layout>
       <div className={styles.container}>
         <Head>
-          <title>Create Next App</title>
+          <title>清嶼 Tranquil Island</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -124,12 +131,12 @@ export default function Product({ data, query }) {
               <h1 className={styles.productTitle}>{product_name || ""}</h1>
               <Link href={`/brand/${brand}`}>{brand || ""}</Link>
             </div>
-            <span className={styles.priceText}>{price || 0}$</span>
+            {/* <span className={styles.priceText}>{price || 0}$</span> */}
             <div className={styles.saleContainer}>
               <span className={styles.saleText}>{sale_price || 0}$</span>
-              <span className={styles.savedText}>
+              {/* <span className={styles.savedText}>
                 {"(You will be saved " + (price - sale_price) + "$!)"}
-              </span>
+              </span> */}
             </div>
             <hr />
             <div className={styles.sizes}>
@@ -166,7 +173,7 @@ export default function Product({ data, query }) {
             <hr />
             <div className={styles.infoContainer}>
               <h4 className={styles.sizesText}>Product Information</h4>
-              <p className={styles.infoText}>{information}</p>
+              <p className={styles.infoText}>{newText}</p>
             </div>
           </div>
         </main>
@@ -178,12 +185,15 @@ export default function Product({ data, query }) {
 Product.getInitialProps = async function ({ query }) {
   let data = {};
   let error = {};
+  console.log("query"+{query})
+  console.log("123123")
   await db
     .collection("Products")
     .doc(query.product)
     .get()
     .then(function (doc) {
       data = { id: doc.id, ...doc.data() };
+      console.log("product"+doc.id)
     })
     .catch((e) => (error = e));
 

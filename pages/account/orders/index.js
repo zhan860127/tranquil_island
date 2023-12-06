@@ -13,7 +13,7 @@ export default function Orders() {
   const { user, loading } = useAuth();
 
   const { data } = useOrders();
-
+  console.log(data)
   if (!user && !loading) useRouter().push("/login");
 
   return (

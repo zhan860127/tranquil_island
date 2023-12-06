@@ -20,7 +20,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.container}>
-      <a className={styles.logo}>Shopping</a>
+      <a className={styles.logo}>清嶼Tranquil Island</a>
       <div className={styles.content}>
         <div className={styles.switchContainer}>
           <button

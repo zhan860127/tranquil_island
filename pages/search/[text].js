@@ -19,7 +19,7 @@ export default function SearchPage({ data, query }) {
     <Layout>
       <div className={styles.container}>
         <Head>
-          <title>Create Next App</title>
+          <title>清嶼 Tranquil island</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -28,10 +28,10 @@ export default function SearchPage({ data, query }) {
             <h1 className={styles.title}>
               Listing {data.length} products for "{query.text}"
             </h1>
-            <div className={styles.headerButtons}>
+            {/* <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
+            </div> */}
           </div>
           <div className={styles.products}>
             {!loading &&

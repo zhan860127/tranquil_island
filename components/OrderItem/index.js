@@ -8,7 +8,7 @@ export default function OrderItem({ data }) {
   const address = useAddress(data.address);
   const { title, region, city, full_address, zipcode } = address.data;
   console.log(new Date(data.date));
-  console.log(data.date);
+  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -31,16 +31,14 @@ export default function OrderItem({ data }) {
       </div>
       <hr />
       <div className={styles.productPhotos}>
-        <img
-          className={styles.photo}
-          src="https://productimages.hepsiburada.net/s/34/120/10426321043506.jpg"
-          loading="lazy"
-        />
-        <img
-          className={styles.photo}
-          src="https://i.ibb.co/ZK2L8cg/kisspng-fashion-model-hugo-boss-pinpoint-resource-of-oklah-mens-fashion-5a78e637c1bde9-3434957015178.png"
-          loading="lazy"
-        />
+
+      {data.product_photo?.map((item) => {
+                return <img
+                className={styles.photo}
+                src={item}
+                loading="lazy"
+              />;
+              })}      
       </div>
       <hr />
       <div className={styles.addressContainer}>

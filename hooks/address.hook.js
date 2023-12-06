@@ -45,7 +45,7 @@ const useAddress = (id) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  console.log(id)
   useEffect(() => {
     async function fetchFromFirestore() {
       auth.currentUser &&

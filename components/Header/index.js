@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-
 import styles from "./header.module.scss";
-
 import SearchIcon from "@/icons/search";
 import CartIcon from "@/icons/cart";
 import ArrowIcon from "@/icons/arrow";
-
 import { useAuth } from "@/firebase/context";
 import { db, auth } from "@/config/firebase";
 import { useCart } from "hooks/cart.hook";
 import { useRouter } from "next/router";
 import MenuIcon from "@/icons/menu";
+
 
 export default function Header() {
   const [showHeader, setShowHeader] = useState({
@@ -30,7 +28,7 @@ export default function Header() {
     <nav className={styles.container}>
       <div className={styles.logoContainer}>
         <Link href="/">
-          <a className={styles.logo}>Shopping</a>
+          <img src="/banner.jpg" style={{overflow:"hidden"}}></img>
         </Link>
         <div className={styles.rightContentMobile}>
           <Link href="/cart">

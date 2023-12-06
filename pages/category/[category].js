@@ -9,8 +9,8 @@ import Button from "@/components/FilterButton";
 import ProductCard from "@/components/ProductCard/product-card";
 
 const getEmoji = {
-  clothing: "👚",
-  shoes: "👠",
+  食物: "👚",
+  拼貼: "👠",
   accessories: "👜",
   activewear: "🤸",
   gifts_and_living: "🎁",
@@ -21,7 +21,8 @@ export default function Category({ data, query }) {
   const { user, loading } = useAuth();
 
   console.log(user, loading);
-
+  console.log(data)
+  console.log()
   const formattedName =
     query.category === "gifts_and_living"
       ? "Gifts & Living"
@@ -31,7 +32,7 @@ export default function Category({ data, query }) {
     <Layout>
       <div className={styles.container}>
         <Head>
-          <title>Create Next App</title>
+          <title>清嶼 Tranquil island</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -41,10 +42,10 @@ export default function Category({ data, query }) {
               <span className={styles.emoji}>{getEmoji[query.category]}</span>
               {formattedName}
             </h1>
-            <div className={styles.headerButtons}>
+            {/* <div className={styles.headerButtons}>
               <Button type="sort" style={{ marginRight: 20 }} />
               <Button count={0} />
-            </div>
+            </div> */}
           </div>
           <div className={styles.products}>
             {!loading &&
@@ -82,9 +83,10 @@ Category.getInitialProps = async function ({ query }) {
         return { id: doc.id, ...doc.data() };
       });
       data = products;
+      console.log("data")
+   
     })
     .catch((e) => (error = e));
-
   return {
     data,
     error,

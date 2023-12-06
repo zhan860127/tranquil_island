@@ -22,9 +22,9 @@ export default function CategoriesBar() {
     <div className={styles.container}>
       <h2 className={styles.title}>Explore</h2>
       <ul className={styles.categories}>
-        <CategoryItem name="New In" emoji="⚡" link="/" />
-        <CategoryItem name="Clothing" emoji="👚" link="/category/clothing" />
-        <CategoryItem name="Shoes" emoji="👠" link="/category/shoes" />
+        <CategoryItem name="新品介紹" emoji="⚡" link="/" />
+        <CategoryItem name="食物" emoji="👚" link="/category/食物" />
+        <CategoryItem name="拼貼" emoji="👠" link="/category/拼貼" />
         <CategoryItem
           name="Accessories"
           emoji="👜"

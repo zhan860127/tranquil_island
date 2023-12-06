@@ -40,7 +40,7 @@ export default function ProductCard({
   };
 
   const goToProduct = (target) => {
-    console.log(target);
+    console.log(target.tagName);
     target?.localName !== "button" &&
       typeof window !== "undefined" &&
       router.push(`/${id}`);
@@ -52,7 +52,16 @@ export default function ProductCard({
       style={{
         backgroundColor: bgColor || "",
       }}
-      onClick={(e) => goToProduct(e.target)}
+      onClick={(e) => {
+        if(e.target.tagName!=="IMG")
+        {console.log(e.target.tagName)
+           return 
+          }
+        else{
+          goToProduct(e.target)
+        }
+      }  
+      }
       {...props}
     >
       <button className={styles.favContainer} onClick={favoriteEvent}>
@@ -72,11 +81,11 @@ export default function ProductCard({
         <h4>{name}</h4>
         {sale_price ? (
           <div className={styles.priceContainer}>
-            <div className={styles.discount}>
+            {/* <div className={styles.discount}>
               {(((price - sale_price) / price) * 100) | 0}%
-            </div>
+            </div> */}
             <div className={styles.prices}>
-              <span className={styles.priceText}>{price}$</span>
+              {/* <span className={styles.priceText}>{price}$</span> */}
               <span className={styles.salePriceText}>{sale_price}$</span>
             </div>
           </div>

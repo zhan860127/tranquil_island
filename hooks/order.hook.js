@@ -14,6 +14,7 @@ const useOrders = () => {
           .doc(auth.currentUser.uid)
           .get()
           .then(function (doc) {
+            console.log(doc.data())
             const orders = doc.data().orders;
             console.log(orders);
             if (orders) {
@@ -23,10 +24,11 @@ const useOrders = () => {
                   const ordersArray = querySnapshot.docs
                     .filter((doc) => orders.includes(doc.id))
                     .map(function (doc) {
+                      console.log(doc.data())
                       return {
                         id: doc.id,
                         ...doc.data(),
-                        date: doc.data().date.toDate(),
+                        date: doc.data().date,
                       };
                     });
                   setData(ordersArray);
